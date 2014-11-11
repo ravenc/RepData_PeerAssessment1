@@ -1,11 +1,6 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 
----
+
 
 ## Loading and preprocessing the data
 
@@ -64,7 +59,7 @@ actDT <- summarise(actD, steps=sum(steps))
 hist(actDT$steps, main="Total Number of Steps Taken Each Day", xlab="Steps")
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
 
 
 2. Calculate and report the mean and median total number of steps taken per day:
@@ -127,7 +122,7 @@ plot(actID, type="l", xlab="Time", ylab="Steps",
      main= "Average Number of Steps per 5-min Intervals")
 ```
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -187,7 +182,7 @@ actNewDT <- aggregate(steps ~ date, data=actNew, sum)
 hist(actNewDT$steps, main="Total Number of Steps Taken Each Day", xlab="Steps")
 ```
 
-![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-16-1.png) 
 
 * Calculate and report the mean and median total number of steps taken per day.
 
@@ -276,4 +271,4 @@ xyplot(mean ~ d | wk, data=actNewIDM, type="l", layout=c(1, 2),
        ylab="Number of steps", main="Average Number of Steps per 5-min Intervals")   
 ```
 
-![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-24-1.png) 
