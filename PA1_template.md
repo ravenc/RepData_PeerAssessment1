@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 
 ---
@@ -61,7 +66,7 @@ actDT <- summarise(actD, steps=sum(steps))
 hist(actDT$steps, main="Total Number of Steps Taken Each Day", xlab="Steps")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
 
 
 2. Calculate and report the mean and median total number of steps taken per day:
@@ -124,7 +129,7 @@ plot(actID, type="l", xlab="Time", ylab="Steps",
      main= "Average Number of Steps per 5-min Intervals")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png) 
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -153,6 +158,11 @@ sum(is.na(act$steps))
 ```
 
 2. Devise a strategy for filling in all of the missing values in the dataset.
+
+A simple strategy for imputing missing values was chosen: `NAs` were replaced by the mean for that 5-minute interval averaged across all days. These values were already computed in the previous exercise.
+
+Arguably, this is more accurate than using the mean/median for that day because, as can be seen from the data, number of steps differs a lot during the 24 hours of any given day, but it is much more consistent for any given 5-minute interval across all days.  
+
 
 ```r
 actM <- merge(act, actI, by="interval")
@@ -184,7 +194,7 @@ actNewDT <- aggregate(steps ~ date, data=actNew, sum)
 hist(actNewDT$steps, main="Total Number of Steps Taken Each Day", xlab="Steps")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-16-1.png) 
+![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-1.png) 
 
 * Calculate and report the mean and median total number of steps taken per day.
 
@@ -273,4 +283,4 @@ xyplot(mean ~ d | wk, data=actNewIDM, type="l", layout=c(1, 2),
        ylab="Number of steps", main="Average Number of Steps per 5-min Intervals")   
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-24-1.png) 
+![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24-1.png) 

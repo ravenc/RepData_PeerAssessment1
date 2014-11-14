@@ -101,6 +101,11 @@ sum(is.na(act$steps))
 ```
 
 2. Devise a strategy for filling in all of the missing values in the dataset.
+
+A simple strategy for imputing missing values was chosen: `NAs` were replaced by the mean for that 5-minute interval averaged across all days. These values were already computed in the previous exercise.
+
+Arguably, this is more accurate than using the mean/median for that day because, as can be seen from the data, number of steps differs a lot during the 24 hours of any given day, but it is much more consistent for any given 5-minute interval across all days.  
+
 ```{r}
 actM <- merge(act, actI, by="interval")
 colnames(actM)[c(2, 4)] <- c("steps", "mu.steps")
